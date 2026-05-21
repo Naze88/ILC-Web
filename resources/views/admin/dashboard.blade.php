@@ -66,6 +66,13 @@
                 Track Form Completion
             </span>
         </a>
+
+        <a href="{{ route('admin.database_analytics') }}"
+           class="flex items-center justify-center bg-white border-2 border-green-600 rounded-lg shadow-sm hover:shadow-md hover:bg-green-600 transition-all duration-300">
+            <span class="text-center font-bold text-sm text-green-700 hover:text-white transition-colors px-2 py-4">
+                Database Analytics
+            </span>
+        </a>
         
     </div>
 </div>

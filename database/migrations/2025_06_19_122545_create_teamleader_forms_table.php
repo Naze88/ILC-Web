@@ -20,7 +20,6 @@ class CreateTeamLeaderFormsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('teamleader_forms');
+        Schema::dropIfExists('team_leader_forms');
     }
 }
-

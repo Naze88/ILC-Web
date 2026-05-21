@@ -1,201 +1,170 @@
 <x-layout>
-    <!-- Main content with video -->
-    <div class="mx-auto w-screen">
-        <div
-            class="relative flex lg:min-h-[500px] w-full items-center overflow-hidden bg-slate-900"
-        >
-            <div class="absolute inset-0 z-0">
-                <img
-                    src="{{ asset("images/banner.webp") }}"
-                    alt="Background"
-                    class="h-full w-full object-cover opacity-50"
-                />
-                <div
-                    class="absolute inset-0 bg-gradient-to-r from-slate-900/80 to-transparent"
-                ></div>
+    <section class="relative isolate overflow-hidden bg-slate-950">
+        <img
+            src="{{ asset('images/banner.webp') }}"
+            alt="RSU Global PAL Center"
+            class="absolute inset-0 -z-10 h-full w-full object-cover opacity-45"
+        />
+        <div class="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(15,23,42,.96),rgba(15,23,42,.74),rgba(15,23,42,.18))]"></div>
+
+        <div class="mx-auto grid min-h-[calc(100vh-4rem)] max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.05fr_.95fr] lg:px-8">
+            <div class="max-w-3xl text-white">
+                <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-violet-100 backdrop-blur">
+                    <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+                    Peer-Assisted Learning Center
+                </div>
+
+                <h1 class="text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+                    RSU Global PAL Center
+                </h1>
+                <p class="mt-5 max-w-2xl text-base leading-7 text-slate-200 sm:text-lg">
+                    Build English confidence with mentors, guided practice, useful resources, and a welcoming international learning community.
+                </p>
+
+                <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+                    <a
+                        href="{{ route('register.mentor') }}"
+                        class="inline-flex items-center justify-center rounded-lg bg-[#7D3C98] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-950/30 transition hover:bg-[#6f328a]"
+                    >
+                        Join Mentorship
+                    </a>
+                    <a
+                        href="{{ route('register.student') }}"
+                        class="inline-flex items-center justify-center rounded-lg border border-white/25 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/15"
+                    >
+                        Register as Student
+                    </a>
+                </div>
             </div>
 
-            <div class="container relative z-10 mx-auto px-2 py-12 lg:px-36 text-white">
-                <div class="max-w-2xl">
-                    <div
-                        class="mb-2 inline-flex items-center gap-2 rounded-full border border-gray-500 bg-gray-800/50 px-2 py-2 lg:px-3 lg:py-1 backdrop-blur-sm"
-                    >
-                        <span class="h-2 w-2 rounded-full bg-[#7D3C98]"></span>
-                        <span
-                            class="text-xs lg:text-sm font-medium uppercase tracking-wider text-gray-300"
-                        >
-                            Peer-Assisted Learning Center
-                        </span>
-                    </div>
-
-                    <h1
-                        class="mb-2 lg:mb-6 text-4xl lg:text-5xl font-bold leading-tight md:text-7xl"
-                    >
-                        Empowering
-                        <span class="text-[#7D3C98]">Global</span>
-                        <br />
-                        Communication
-                    </h1>
-
-                    <p
-                        class="mb-2 lg:mb-8 max-w-lg text-xs lg:text-lg leading-relaxed text-gray-300"
-                    >
-                        Connect with mentors, improve your English skills, and
-                        become part of Rangsit University's vibrant
-                        international community.
-                    </p>
-
-                    <div class="flex flex-wrap gap-4">
-                        <a
-                            href="{{ route('register.mentor') }}"
-                            class="rounded-md bg-[#7D3C98] px-3 py-2 lg:px-8 lg:py-3 font-medium text-white shadow-lg shadow-purple-900/20 transition-all hover:bg-[#7D3C98]/80 hover:backdrop-blur-sm hover:shadow-purple-900/40 transition-all ease-in-out duration-600"
-                        >
-                            Join Mentorship
-                        </a>
-                        <a
-                            href="#about"
-                            class="rounded-md border border-gray-600 bg-gray-800/40 px-3 py-2 lg:px-8 lg:py-3 font-medium text-white backdrop-blur-sm transition-all hover:bg-gray-700/60"
-                        >
-                            Learn More
-                        </a>
-                    </div>
+            <div class="grid gap-3 rounded-lg border border-white/10 bg-white/10 p-4 text-white shadow-2xl shadow-slate-950/25 backdrop-blur-md sm:grid-cols-3 lg:grid-cols-1">
+                <div class="rounded-lg bg-white p-4 text-slate-900">
+                    <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Students</p>
+                    <p class="mt-2 text-3xl font-bold text-[#7D3C98]">{{ number_format($totalStudents) }}+</p>
+                </div>
+                <div class="rounded-lg bg-white p-4 text-slate-900">
+                    <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Mentors</p>
+                    <p class="mt-2 text-3xl font-bold text-emerald-600">{{ number_format($totalMentors) }}+</p>
+                </div>
+                <div class="rounded-lg bg-white p-4 text-slate-900">
+                    <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Team Leaders</p>
+                    <p class="mt-2 text-3xl font-bold text-sky-600">{{ number_format($totalTeamLeaders) }}+</p>
                 </div>
             </div>
         </div>
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-y-4 lg:gap-2 px-2 py-12 lg:px-24 lg:py-24">
-            <div
-                class="flex flex-col items-center justify-center gap-2 border-r border-gray-300"
-            >
-                <svg xmlns="http://www.w3.org/2000/svg" width="30%" height="30%" viewBox="0 0 24 24"><path fill="none" stroke="#7d3c98" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.75 6a3.75 3.75 0 1 1-7.5 0a3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/></svg>
-                <h1 class="text-lg lg:text-3xl font-bold text-[#7D3C98]">{{number_format($totalStudents)}}+</h1>
-                <p class="text-xs text-gray-600 truncate">Active Students</p>
-            </div>
-            <div
-                class="flex flex-col items-center justify-center gap-2 lg:border-r lg:border-gray-300"
-            >
-                <svg xmlns="http://www.w3.org/2000/svg" width="30%" height="30%" viewBox="0 0 24 24"><path fill="none" stroke="#7D3C98" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19.128a9.38 9.38 0 0 0 2.625.372a9.337 9.337 0 0 0 4.121-.952a4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0a3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0a2.625 2.625 0 0 1 5.25 0Z"/></svg>
-                <h1 class="text-lg lg:text-3xl font-bold text-[#7D3C98]">{{number_format($totalMentors)}}+</h1>
-                <p class="text-xs text-gray-600">Mentors</p>
-            </div>
-            <div
-                class="flex flex-col items-center justify-center gap-2 border-r border-gray-300"
-            >
-                <svg xmlns="http://www.w3.org/2000/svg" width="30%" height="30%" viewBox="0 0 24 24"><path fill="none" stroke="#7d3c98" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5a17.92 17.92 0 0 1-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418"/></svg>
-                <h1 class="text-lg lg:text-3xl font-bold text-[#7D3C98]">{{number_format($totalTeamLeaders)}}+</h1>
-                <p class="text-xs text-gray-600">Team Leaders</p>
-            </div>
-            <div class="flex flex-col items-center justify-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30%" height="30%" viewBox="0 0 24 24"><path fill="none" stroke="#7d3c98" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"/></svg>
+    </section>
 
-                <h1 class="text-lg lg:text-3xl font-bold text-[#7D3C98]">50+</h1>
-                <p class="text-xs text-gray-600">Programs</p>
-            </div>
-        </div>
-
-        <div class="flex flex-col justify-center gap-4 px-2 py-12 lg:px-24 lg:py-24 text-center bg-gray-50 rounded-lg">
-            <div>
-                <h1 class="mb-4 px-6 text-4xl font-bold tracking-wide text-gray-800">
-                    Why join RSUGlobal! PAL?
-                </h1>
-                <p
-                    class="break-word mx-auto mb-4 px-4 max-w-xl text-sm leading-relaxed text-gray-400"
-                >
-                    We believe in the power of peer-to-peer learning to break
-                    down language barriers and foster cultural exchange.
+    <section class="bg-white px-4 py-16 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl">
+            <div class="max-w-2xl">
+                <p class="text-sm font-semibold uppercase tracking-wide text-[#7D3C98]">What You Can Explore</p>
+                <h2 class="mt-3 text-3xl font-bold text-slate-950 sm:text-4xl">Helpful pathways for the RSU Global community</h2>
+                <p class="mt-4 text-sm leading-6 text-slate-600 sm:text-base">
+                    Find learning materials, mentoring opportunities, English practice, and community updates in one place.
                 </p>
             </div>
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 justify-center px-2 lg:px-24">
-                <div class="flex flex-col items-left justify-center text-left gap-2 p-4 bg-white rounded-xl min-w-lg h-full max-h-64 border border-gray-200/20 shadow-md">
-                    <svg class="bg-[#7d3c98]/20 rounded-lg p-1" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"><path fill="none" stroke="#7d3c98" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"/></svg>
-                
-                    <h2 class="text-lg font-semibold text-gray-800">
-                        RSU Global! Newsletter
-                    </h2>
-                    <p class="text-xs text-gray-500 min-h-[60px]">
-                        Get matched with experienced mentors who can help you
-                        improve your English skills and navigate cultural
-                        differences.
-                    </p>
-                    <a href="{{ route('newsletter') }}" class="text-xs text-[#7D3C98] justify-self-end hover:underline">
-                        Learn More &nbsp;
-                    </a>
-                </div>
-                <div class="flex flex-col items-left justify-center text-left gap-2 p-4 bg-white rounded-xl min-w-lg h-full max-h-64 border border-gray-200/20 shadow-md">
-                    
-                        <svg class="bg-[#7d3c98]/20 rounded-lg p-1" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"><path fill="none" stroke="#7D3C98" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19.128a9.38 9.38 0 0 0 2.625.372a9.337 9.337 0 0 0 4.121-.952a4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0a3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0a2.625 2.625 0 0 1 5.25 0Z"/></svg>
 
-                    <h2 class="text-lg font-semibold text-gray-800">
-                        Mentor of the Month
-                    </h2>
-                    <p class="text-xs text-gray-500 min-h-[60px]">
-                        Share you own knowledge and experiences to help others grow and succeed. 
-                    </p>
-                    <a href="#" class="text-xs text-[#7D3C98] justify-self-end hover:underline">
-                        Learn More &nbsp;
-                    </a>
-                </div>
-                <div class="flex flex-col items-left justify-center text-left gap-2 p-4 bg-white rounded-xl min-w-lg h-full max-h-64 border border-gray-200/20 shadow-md">
-                        <svg class="bg-[#7d3c98]/20 rounded-lg p-1" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"><path fill="none" stroke="#7d3c98" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.26 10.147a60.436 60.436 0 0 0-.491 6.347A48.627 48.627 0 0 1 12 20.904a48.627 48.627 0 0 1 8.232-4.41a60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.57 50.57 0 0 0-2.658-.813A59.905 59.905 0 0 1 12 3.493a59.902 59.902 0 0 1 10.399 5.84a51.39 51.39 0 0 0-2.658.814m-15.482 0A50.697 50.697 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5a.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"/></svg>
-                    
-                    <h2 class="text-lg font-semibold text-gray-800">
-                        RSU/IRS 127
-                    </h2>
-                    <p class="text-xs text-gray-500 min-h-[60px]">
-                        Improve your academic writing, presentation skills, and confidence for your future career.
-                    </p>
-                    <a href="#" class="text-xs text-[#7D3C98] justify-self-end hover:underline">
-                        Learn More &nbsp;
-                    </a>
-                </div>
-                <div class="flex flex-col items-left justify-center text-left gap-2 p-4 bg-white rounded-xl min-w-lg h-full max-h-64 border border-gray-200/20 shadow-md">
-                    <svg class="bg-[#7d3c98]/20 rounded-lg p-1"xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"><path fill="none" stroke="#7d3c98" stroke-linecap="round" stroke-width="1.5" d="m15.75 10.5l4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z"/></svg>
-                    <h2 class="text-lg font-semibold text-gray-800">
-                        YouTube @RSUGlobal
-                    </h2>
-                    <p class="text-xs text-gray-500 min-h-[60px]">
-                        Access a library of video resources covering language learning, cultural insights, and success stories from our community.
-                    </p>
-                    <a href="https://www.youtube.com/@RSUGlobal555/featured" class="text-xs text-[#7D3C98] justify-self-end hover:underline">
-                        Learn More &nbsp;
-                    </a>
-                </div>
-        </div>
-        
-        </div>
-        <div class="flex flex-col justify-center py-24 gap-2 text-center bg-[#7D3C98]">
-            <h1 class="mb-2 text-4xl font-bold tracking-wide text-white text-center">
-                Ready to start your journey?
-            </h1>
-            <p
-                class="break-word mx-auto mb-4 max-w-xl text-sm leading-relaxed text-white text-center"
-            >
-                Whether you want to improve your English or become a mentor, there's a place for your at RSUGlobal!.
-            </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a
-                    href="{{ route('register.mentor') }}"
-                    class="text-xs lg:text-sm rounded-md  bg-white px-2 py-2 lg:px-8 lg:py-3 font-medium text-[#7D3C98] shadow-md hover:opacity-90 transition-all "
-                >
-                    Join Mentorship
+            <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                <a href="{{ route('newsletter') }}" class="group rounded-lg border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-[#7D3C98]/40 hover:shadow-md">
+                    <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-violet-100 text-[#7D3C98]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75A8.25 8.25 0 0 0 4.5 3v15A8.25 8.25 0 0 1 12 21a8.25 8.25 0 0 1 7.5-3V3A8.25 8.25 0 0 0 12 6.75Zm0 0V21" />
+                        </svg>
+                    </div>
+                    <h3 class="mt-4 text-lg font-semibold text-slate-950">RSU Global Newsletter</h3>
+                    <p class="mt-2 text-sm leading-6 text-slate-600">Read updates, announcements, and learning resources from the RSU Global team.</p>
+                    <span class="mt-5 inline-flex text-sm font-semibold text-[#7D3C98] group-hover:underline">Learn More</span>
                 </a>
-                <a
-                    href="#about"
-                    class="text-xs lg:text-sm rounded-md border border-gray-100 px-2 py-2 lg:px-8 lg:py-3 font-medium text-white hover:bg-white/10 backdrop-blur-sm transition-all"
-                >
-                    Contact Us
+
+                <a href="{{ route('register.mentor') }}" class="group rounded-lg border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-500/40 hover:shadow-md">
+                    <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-emerald-100 text-emerald-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75a4.5 4.5 0 0 0-9 0M12 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm6.75 6.75a3.75 3.75 0 0 0-3.1-3.69M15.75 7.5a2.25 2.25 0 1 1 0 4.5" />
+                        </svg>
+                    </div>
+                    <h3 class="mt-4 text-lg font-semibold text-slate-950">Mentorship</h3>
+                    <p class="mt-2 text-sm leading-6 text-slate-600">Connect with peers, share experience, and support English communication growth.</p>
+                    <span class="mt-5 inline-flex text-sm font-semibold text-emerald-700 group-hover:underline">Join Now</span>
+                </a>
+
+                <a href="#" class="group rounded-lg border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-sky-500/40 hover:shadow-md">
+                    <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-sky-100 text-sky-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5V6.75A2.25 2.25 0 0 1 6.75 4.5h10.5a2.25 2.25 0 0 1 2.25 2.25V19.5m-15 0h15m-15 0A2.25 2.25 0 0 0 6.75 21h10.5a2.25 2.25 0 0 0 2.25-1.5M8.25 8.25h7.5M8.25 12h7.5" />
+                        </svg>
+                    </div>
+                    <h3 class="mt-4 text-lg font-semibold text-slate-950">RSU/IRS 127</h3>
+                    <p class="mt-2 text-sm leading-6 text-slate-600">Improve writing, presentation skills, speaking confidence, and academic communication.</p>
+                    <span class="mt-5 inline-flex text-sm font-semibold text-sky-700 group-hover:underline">Explore</span>
+                </a>
+
+                <a href="https://www.youtube.com/@RSUGlobal555/featured" class="group rounded-lg border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-rose-500/40 hover:shadow-md">
+                    <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-rose-100 text-rose-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m10.5 8.25 5.25 3.75-5.25 3.75v-7.5ZM4.5 6.75A2.25 2.25 0 0 1 6.75 4.5h10.5a2.25 2.25 0 0 1 2.25 2.25v10.5a2.25 2.25 0 0 1-2.25 2.25H6.75a2.25 2.25 0 0 1-2.25-2.25V6.75Z" />
+                        </svg>
+                    </div>
+                    <h3 class="mt-4 text-lg font-semibold text-slate-950">YouTube @RSUGlobal</h3>
+                    <p class="mt-2 text-sm leading-6 text-slate-600">Watch language learning resources, community stories, and cultural insight videos.</p>
+                    <span class="mt-5 inline-flex text-sm font-semibold text-rose-700 group-hover:underline">Watch Videos</span>
                 </a>
             </div>
         </div>
+    </section>
 
-        <script>
-            function toggleAccordion(id) {
-                const element = document.getElementById(id);
-                if (element.classList.contains('hidden')) {
-                    element.classList.remove('hidden');
-                } else {
-                    element.classList.add('hidden');
-                }
-            }
-        </script>
-    
+    <section class="bg-slate-50 px-4 py-16 sm:px-6 lg:px-8">
+        <div class="mx-auto grid max-w-7xl items-center gap-8 lg:grid-cols-[.9fr_1.1fr]">
+            <div>
+                <p class="text-sm font-semibold uppercase tracking-wide text-[#7D3C98]">Why PAL</p>
+                <h2 class="mt-3 text-3xl font-bold text-slate-950 sm:text-4xl">Practice with people who understand the journey</h2>
+                <p class="mt-4 text-base leading-7 text-slate-600">
+                    PAL gives students a friendly way to practice, ask questions, and grow through peer support. Mentors and team leaders help keep the learning practical, human, and consistent.
+                </p>
+            </div>
+
+            <div class="grid gap-4 sm:grid-cols-2">
+                <div class="rounded-lg border border-slate-200 bg-white p-5">
+                    <h3 class="text-base font-semibold text-slate-950">Peer Support</h3>
+                    <p class="mt-2 text-sm leading-6 text-slate-600">Learn with mentors who can explain ideas clearly and share real student experience.</p>
+                </div>
+                <div class="rounded-lg border border-slate-200 bg-white p-5">
+                    <h3 class="text-base font-semibold text-slate-950">Confidence Building</h3>
+                    <p class="mt-2 text-sm leading-6 text-slate-600">Practice communication in a low-pressure space before using English in class or work.</p>
+                </div>
+                <div class="rounded-lg border border-slate-200 bg-white p-5">
+                    <h3 class="text-base font-semibold text-slate-950">Useful Resources</h3>
+                    <p class="mt-2 text-sm leading-6 text-slate-600">Access newsletters, videos, forms, and links that support ongoing learning.</p>
+                </div>
+                <div class="rounded-lg border border-slate-200 bg-white p-5">
+                    <h3 class="text-base font-semibold text-slate-950">Community</h3>
+                    <p class="mt-2 text-sm leading-6 text-slate-600">Meet people across programs and build stronger international connections at RSU.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-[#7D3C98] px-4 py-14 text-white sm:px-6 lg:px-8">
+        <div class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 lg:flex-row lg:items-center">
+            <div>
+                <h2 class="text-3xl font-bold">Ready to start your journey?</h2>
+                <p class="mt-3 max-w-2xl text-sm leading-6 text-violet-100">
+                    Register, connect with the PAL community, and take the next step in your English communication practice.
+                </p>
+            </div>
+            <div class="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+                <a
+                    href="{{ route('register.student') }}"
+                    class="inline-flex justify-center rounded-lg bg-white px-5 py-3 text-sm font-semibold text-[#7D3C98] transition hover:bg-violet-50"
+                >
+                    Register Student
+                </a>
+                <a
+                    href="{{ route('login') }}"
+                    class="inline-flex justify-center rounded-lg border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+                >
+                    Log In
+                </a>
+            </div>
+        </div>
+    </section>
 </x-layout>

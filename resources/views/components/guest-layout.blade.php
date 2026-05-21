@@ -9,13 +9,13 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="bg-white">
-    <div class="flex flex-col min-h-screen">
+<body>
+    <div class="ilc-shell flex min-h-screen flex-col">
 
         <!-- Navigation Bar -->
 
         <!-- Main Content -->
-        <main class="flex-1 p-6">
+        <main class="ilc-page flex-1 p-6">
             {{ $slot }}
         </main>
 

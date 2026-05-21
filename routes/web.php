@@ -14,6 +14,7 @@ use App\Http\Controllers\AdminFormController;
 use App\Http\Controllers\StudentFormController;
 use App\Http\Controllers\MentorFormController;
 use App\Http\Controllers\AdminFileUploadLinkController;
+use App\Http\Controllers\AdminAnalyticController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\GuestPageController;
 use App\Http\Middleware\AdminMiddleware;
@@ -180,6 +181,7 @@ Route::middleware([AdminMiddleware::class, 'auth'])->group(function () {
     Route::get('/admin/attendance', [AttendanceController::class, 'index'])->name('admin.attendance.index');
     Route::post('/admin/attendance/preview', [AttendanceController::class, 'preview'])->name('admin.attendance.preview');
 
+    Route::get('/admin/database-analytics', [AdminAnalyticController::class, 'index'])->name('admin.database_analytics');
 
 });
 

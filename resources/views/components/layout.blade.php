@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta
             name="viewport"
-            content="width=device-width, initial-scale=1.0 final-scale=1.0 user-scalable=no"
+            content="width=device-width, initial-scale=1.0"
         />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -12,29 +12,29 @@
         @vite("resources/css/app.css")
     </head>
 
-    <body class="bg-white">
-        <div class="min-h-screen flex-col">
+    <body class="overflow-x-hidden text-slate-900 antialiased">
+        <div class="ilc-shell min-h-screen flex-col">
             <!-- Header with Logo and Title -->
             <header
-                class="fixed top-0 z-50 w-full bg-white py-2 shadow-sm backdrop-blur-sm"
+                class="ilc-header fixed top-0 z-50 w-full py-2 text-white backdrop-blur"
             >
                 <!-- Navigation Bar with Login/Register -->
 
                 <div
-                    class="gap-xs mr-2 flex w-full justify-between px-1 py-1 text-[10px] md:text-sm lg:gap-2 lg:px-4 lg:py-2 lg:text-base"
+                    class="mx-auto flex w-full max-w-7xl justify-between gap-2 px-3 py-1 text-[10px] md:text-sm lg:px-6 lg:py-2 lg:text-base"
                 >
-                    <div class="items-left flex justify-center gap-1 text-left">
+                    <div class="items-left flex justify-center gap-2 text-left">
                         <img
                             src="/images/rsuGlobal.png"
                             alt="RSU Logo"
-                            class="h-10 w-10 md:h-12 md:w-12"
+                            class="ilc-brand-mark h-10 w-10 rounded-full p-1 md:h-12 md:w-12"
                         />
                         <h1
-                            class="mx-auto text-sm font-bold tracking-wider text-[#7D3C98] md:text-base lg:text-2xl"
+                            class="mx-auto text-sm font-bold tracking-wider text-[#F6D58B] md:text-base lg:text-2xl"
                         >
                             RSU GLOBAL!
                             <span
-                                class="mt-[-4px] block text-xs font-normal tracking-normal text-gray-600 md:text-sm lg:text-xs"
+                                class="mt-[-4px] block text-xs font-normal tracking-normal text-violet-100 md:text-sm lg:text-xs"
                             >
                                 PAL Center
                             </span>
@@ -438,7 +438,7 @@
                                         Analytics
                                     </p>
                                     <a
-                                        href=""
+                                        href="{{ route("admin.database_analytics") }}"
                                         class="block px-2 py-2 text-xs text-green-600 hover:bg-gray-100"
                                     >
                                         Database Analytics
@@ -553,13 +553,13 @@
             </header>
 
             <!-- Main Content -->
-            <main class="flex-1 pt-16">
+            <main class="ilc-page flex-1 pt-16">
                 {{ $slot }}
             </main>
             <!-- Footer -->
             @if (! Request::is("login") && ! Request::is("register/student") && ! Request::is("register/mentor") && ! Request::is("register/team-leader"))
                 <footer
-                    class="bg-slate-900 px-2 py-4 text-center text-xs text-white lg:px-24 lg:py-12 lg:text-sm"
+                    class="ilc-footer px-2 py-4 text-center text-xs text-white lg:px-24 lg:py-12 lg:text-sm"
                 >
                     <div
                         class="grid grid-cols-1 items-center justify-start gap-8 border-b border-gray-700 pb-8 text-left lg:grid-cols-4 lg:gap-4"
@@ -571,14 +571,14 @@
                                 <img
                                     src="/images/rsuGlobal.png"
                                     alt="RSU Logo"
-                                    class="h-10 w-10 md:h-12 md:w-12"
+                                    class="ilc-brand-mark h-10 w-10 rounded-full p-1 md:h-12 md:w-12"
                                 />
                                 <h1
-                                    class="max-w-sm text-sm font-bold tracking-wider text-[#7D3C98] md:text-base lg:text-2xl"
+                                    class="max-w-sm text-sm font-bold tracking-wider text-[#F6D58B] md:text-base lg:text-2xl"
                                 >
                                     RSU GLOBAL!
                                     <span
-                                        class="mt-[-4px] block text-xs font-normal tracking-normal text-gray-600 md:text-sm lg:text-xs"
+                                        class="mt-[-4px] block text-xs font-normal tracking-normal text-violet-100 md:text-sm lg:text-xs"
                                     >
                                         PAL Center
                                     </span>
