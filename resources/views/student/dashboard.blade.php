@@ -21,7 +21,7 @@
    <!-- <div class="flex flex-col items-center justify-center w-full lg:w-full mx-auto bg-[#7D3C98] p-4 shadow-md mt-2 mb-3">
          <div class="flex flex-col justify-center items-center bg-[#7D3C98] w-full lg:w-1/2 ">
             <div class=" flex max-w-xs justify-center bg-white hover:shadow-lg hover:scale-105 rounded-md">
-                <a href="https://tinyurl.com/WebsiteTeamSurvey"><img src="/images/webTeamSurvey.png" alt="web team survey" class="w-32 h-auto p-2" ></a>
+                <a href="https://tinyurl.com/WebsiteTeamSurvey"><img src="/images/WebTeamSurvey.png" alt="web team survey" class="w-32 h-auto p-2" ></a>
             </div>
         <a href="https://tinyurl.com/WebsiteTeamSurvey" class="text-center text-white text-lg mb-2 mt-2 text-[28px] hover:underline hover:scale-105">Web Team Survey</a>
         <p class="text-[12px] text-white text-center text-[12px]">Please fill out this survey to help us improve the RSU PAL Centre website and services. When answering the questions, please provide as much detail as possible instead of yes and no only. We appreciate your feedback!</p>
